@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "Jivan OS Lite",
+    "slug": "jivan-os-lite",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0F0F0F",
+    "splash": {
+      "backgroundColor": "#0F0F0F",
+      "resizeMode": "contain"
+    },
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.jivan.oslite" },
+    "android": { "package": "com.jivan.oslite" },
+    "plugins": ["expo-sqlite"]
+  }
+}
