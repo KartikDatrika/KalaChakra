@@ -6,6 +6,7 @@ import Animated, {
   runOnJS,
   useAnimatedReaction,
   useAnimatedStyle,
+  type SharedValue,
 } from 'react-native-reanimated';
 import Svg from 'react-native-svg';
 import { HITBOX_WIDTH, useOrbitSlider } from '@/gestures/useOrbitSlider';
@@ -23,7 +24,7 @@ const CX = SIZE / 2;
 const CY = SIZE / 2;
 const R = SIZE / 2 - 16;
 
-function useLayerStyle(orbitLevel: Animated.SharedValue<number>, target: number) {
+function useLayerStyle(orbitLevel: SharedValue<number>, target: number) {
   return useAnimatedStyle(() => {
     const op = interpolate(
       orbitLevel.value,

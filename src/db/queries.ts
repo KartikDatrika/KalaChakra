@@ -2,7 +2,9 @@ import { db } from './client';
 import type { GunaState, MonthAggregate, NewInteraction, YearAggregate } from '@/types';
 
 export function insertInteraction(i: NewInteraction): void {
-  db().runSync(
+  const d = db();
+  if (!d) return;
+  d.runSync(
     `INSERT INTO interactions (timestamp, duration_mins, guna_state, type, score)
      VALUES (?, ?, ?, ?, ?);`,
     i.timestamp,
@@ -14,7 +16,9 @@ export function insertInteraction(i: NewInteraction): void {
 }
 
 export function aggregateByMonth(): MonthAggregate[] {
-  const rows = db().getAllSync<{
+  const d = db();
+  if (!d) return [];
+  const rows = d.getAllSync<{
     m: string;
     guna_state: GunaState;
     s: number;
@@ -33,7 +37,9 @@ export function aggregateByMonth(): MonthAggregate[] {
 }
 
 export function aggregateByYearOfLife(birthYear: number): YearAggregate[] {
-  const rows = db().getAllSync<{ y: string; s: number }>(
+  const d = db();
+  if (!d) return [];
+  const rows = d.getAllSync<{ y: string; s: number }>(
     `SELECT strftime('%Y', timestamp/1000, 'unixepoch') AS y,
             SUM(duration_mins) AS s
        FROM interactions
