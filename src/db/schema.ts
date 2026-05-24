@@ -1,3 +1,5 @@
+import { POMODORO_SCHEMA } from './pomodoro';
+
 export const SCHEMA_SQL = `
 CREATE TABLE IF NOT EXISTS interactions (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -8,4 +10,5 @@ CREATE TABLE IF NOT EXISTS interactions (
   score REAL NOT NULL DEFAULT 0
 );
 CREATE INDEX IF NOT EXISTS idx_interactions_ts ON interactions(timestamp);
+${POMODORO_SCHEMA}
 `;
