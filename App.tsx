@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { initDatabase } from '@/db/client';
-import { KalaChakra } from '@/ui/KalaChakra';
+import { KalaChakraDial } from '@/ui/KalaChakraDial';
 import { colors } from '@/theme/colors';
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <GestureHandlerRootView style={styles.root}>
       <StatusBar style="light" />
-      <View style={styles.root}>{ready && <KalaChakra />}</View>
+      <View style={styles.root}>{ready && <KalaChakraDial />}</View>
     </GestureHandlerRootView>
   );
 }
